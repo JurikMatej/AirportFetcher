@@ -7,14 +7,17 @@ import sys
 # the Kiwi Locations Api
 #
 class Api:
+
+  # Access url to the Api
+  api_url = 'https://api.skypicker.com/locations?type=subentity&term=GB&locale=en-US&active_only=true&location_types=airport&limit=100&sort=name'
+
   ##
   # Get cities with airports from 
   # the Kiwi Locations Api
   #
   @staticmethod
   def get_cities():
-    api_url = 'https://api.skypicker.com/locations?type=subentity&term=GB&locale=en-US&active_only=true&location_types=airport&limit=100&sort=name'
-    res = r.get(api_url).content
+    res = r.get(Api.api_url).content
     
     data = json.loads(res)
     
@@ -39,8 +42,7 @@ class Api:
   #
   @staticmethod
   def get_coords():
-    api_url = 'https://api.skypicker.com/locations?type=subentity&term=GB&locale=en-US&active_only=true&location_types=airport&limit=100&sort=name'
-    res = r.get(api_url).content
+    res = r.get(Api.api_url).content
     
     data = json.loads(res)
     
@@ -61,8 +63,7 @@ class Api:
   #
   @staticmethod
   def get_iata():
-    api_url = 'https://api.skypicker.com/locations?type=subentity&term=GB&locale=en-US&active_only=true&location_types=airport&limit=100&sort=name'
-    res = r.get(api_url).content
+    res = r.get(Api.api_url).content
     
     data = json.loads(res)
     
@@ -83,8 +84,7 @@ class Api:
   #
   @staticmethod
   def get_names():
-    api_url = 'https://api.skypicker.com/locations?type=subentity&term=GB&locale=en-US&active_only=true&location_types=airport&limit=100&sort=name'
-    res = r.get(api_url).content
+    res = r.get(Api.api_url).content
     
     data = json.loads(res)
     
@@ -105,8 +105,7 @@ class Api:
   #
   @staticmethod
   def get_full():
-    api_url = 'https://api.skypicker.com/locations?type=subentity&term=GB&locale=en-US&active_only=true&location_types=airport&limit=100&sort=name'
-    res = r.get(api_url).content
+    res = r.get(Api.api_url).content
     
     data = json.loads(res)
     
@@ -127,7 +126,6 @@ class Api:
   #
   @staticmethod
   def get_mixed(args):
-    
     options = {
       '--coords' : 'location',
       '--iata'   : 'id',
@@ -135,8 +133,7 @@ class Api:
       '--cities' : 'city'
     }
 
-    api_url = 'https://api.skypicker.com/locations?type=subentity&term=GB&locale=en-US&active_only=true&location_types=airport&limit=100&sort=name'
-    res = r.get(api_url).content
+    res = r.get(Api.api_url).content
     
     data = json.loads(res)
     

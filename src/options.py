@@ -3,7 +3,7 @@ import sys
 class Options:
 
 	##
-	#	Constructor
+	#	Constructor:
 	#	Set up default options and check if an option was passed as an argument
 	# through the command line
 	#
@@ -49,7 +49,7 @@ class Options:
 		options = options[1:] # Remove 'main.py' from args
 		for option in options:
 			if option not in self.options:
-				self.configureOption(None)
+				self.selected_option = self.default_option
 				return 0
 
 		self.selected_option = list(options)
