@@ -18,30 +18,36 @@ def main():
 
 		elif opt == '--cities':
 			Api.get_cities()
-			more_info()
+			# more_info()
 		
 		elif opt == '--coords':
 			Api.get_coords()
-			more_info()
+			# more_info()
 
 		elif opt == '--iata':
 			Api.get_iata()
-			more_info()
+			# more_info()
 
 		elif opt == '--names':
 			Api.get_names()
-			more_info()
+			# more_info()
 
 		elif opt == '--full':
 			Api.get_full()
-			more_info()
+			# more_info()
 
 	# Multiple arguments 
 	elif type(opt) is list:
-		# If --full is given as a argument with any other 
+		# If --help is given as an argument with any other
+		# arguments, print out just the help message
+		if '--help' in opt:
+			help()
+
+		# If --full is given as an argument with any other 
 		# arguments, use the convenient get_full() Api method
-		if '--full' in opt:
+		elif '--full' in opt:
 			Api.get_full()
+
 		else:
 			Api.get_mixed(opt)
 
@@ -51,8 +57,8 @@ def main():
 # and how to use it
 #
 def help():
-	print('\n\nA python program that fetches data about airports in United Kingdom from the Kiwi Locations API. ')
-	print('Author: Matej Jurík Pegas I.T.')
+	print('\n\nA python program that fetches data about airports in the United Kingdom from the Kiwi Locations API. ')
+	print('Author: Matej Jurík, Pegas I.T.')
 	print('------------------------------')
 	print('How to use: ')
 	print('	Use one of the options specified below to get wanted output:')
